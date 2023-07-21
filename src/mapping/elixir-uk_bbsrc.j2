@@ -1,0 +1,9 @@
+{#- This maps elixir.uk:bbsrc KM to our data model but you should use UKRI-KM mapping first -#}
+
+{%- macro mapToData(data) -%}
+  {#- Contact information -#}
+  {%- set path = '562dec1f-0f44-4780-9f50-05f5c59a6925.c5763e5c-aaff-47c3-92d6-90ee70ab6724' %}
+  {%- if path in dc.replies.keys() -%}
+    {%- do data.contact.update({'comment': dc.replies.get(path).value}) -%}
+  {%- endif -%}
+{%- endmacro -%}

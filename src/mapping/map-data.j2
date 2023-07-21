@@ -1,0 +1,21 @@
+{%- import 'src/mapping/default-data.j2' as default_data with context -%}
+{%- set data = default_data.data -%}
+
+{%- if dc.package.id.startswith('elixir.uk:ukri-km:') -%}
+  {%- import 'src/mapping/elixir-uk_ukri-km.j2' as elixiruk_ukrikm with context -%}
+  {%- do elixiruk_ukrikm.mapToData(data) -%}
+{%- elif dc.package.id.startswith('elixir.uk:bbsrc:') -%}
+  {#- It extends the UKRI-KM and changes Author section -#}
+  {%- import 'src/mapping/elixir-uk_ukri-km.j2' as elixiruk_ukrikm with context -%}
+  {%- do elixiruk_ukrikm.mapToData(data) -%}
+  {%- import 'src/mapping/elixir-uk_bbsrc.j2' as elixiruk_bbsrc with context -%}
+  {%- do elixiruk_bbsrc.mapToData(data) -%}
+{%- elif dc.package.id.startswith('elixir.uk:dmp-template-for-medical-research-council-mrc:') -%}
+  {#- It extends the UKRI-KM and changes Author section (it does it the same way as bbsrc) -#}
+  {%- import 'src/mapping/elixir-uk_ukri-km.j2' as elixiruk_ukrikm with context -%}
+  {%- do elixiruk_ukrikm.mapToData(data) -%}
+  {%- import 'src/mapping/elixir-uk_bbsrc.j2' as elixiruk_bbsrc with context -%}
+  {%- do elixiruk_bbsrc.mapToData(data) -%}
+{%- else -%}
+  {{ 'This KM is not supported'|error }}
+{%- endif -%}

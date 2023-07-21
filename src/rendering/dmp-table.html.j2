@@ -1,0 +1,191 @@
+{%- set not_answered = '<span class="not-answered">Not yet answered...</span>' -%}
+{%- macro renderAnswerText(text) -%}
+  {%- if not text -%}
+    {{ '<p>' ~ not_answered ~ '</p>' }}
+  {%- else -%}
+    {{ ('<p>' ~ (text|urlize|markdown).split('\n')|join('</p><p>') ~ '</p>') }}
+  {%- endif -%}
+{%- endmacro %}
+<table class="dmp-table">
+  <tbody>
+
+    <tr class="row-section">
+      <th><h2><span class="numbering">0.</span> {% trans %}Proposal name{% endtrans %}</h2></th>
+    </tr>
+    <tr class="row-content">
+      <td>{{ data.project_name }}</td>
+    </tr>
+
+    <tr class="row-section">
+      <th><h2><span class="numbering">1.</span> {% trans %}Description of the data{% endtrans %}</h2></th>
+    </tr>
+    <tr class="row-content">
+      <td>
+        <div class="subsection">
+          <h3><span class="numbering">1.1.</span> {% trans %}Type of study{% endtrans %}</h3>
+          {{ renderAnswerText(data.data_description.type_of_study) }}
+        </div>
+
+        <div class="subsection">
+          <h3><span class="numbering">1.2.</span> {% trans %}Types of data{% endtrans %}</h3>
+          {{ renderAnswerText(data.data_description.types_of_data) }}
+        </div>
+
+        <div class="subsection">
+          <h3><span class="numbering">1.3.</span> {% trans %}Format and scale of the data{% endtrans %}</h3>
+          {{ renderAnswerText(data.data_description.format_and_scale) }}
+        </div>
+      </td>
+    </tr>
+
+    <tr class="row-section">
+      <th><h2><span class="numbering">2.</span> {% trans %}Data collection / generation{% endtrans %}</h2></th>
+    </tr>
+    <tr class="row-content">
+      <td>
+        <div class="subsection">
+          <h3><span class="numbering">2.1.</span> {% trans %}Methodologies for data collection / generation{% endtrans %}</h3>
+          {{ renderAnswerText(data.data_collection.methodologies) }}
+        </div>
+
+        <div class="subsection">
+          <h3><span class="numbering">2.2.</span> {% trans %}Data quality and standards{% endtrans %}</h3>
+          {{ renderAnswerText(data.data_collection.quality_standards) }}
+        </div>
+      </td>
+    </tr>
+
+    <tr class="row-section">
+      <th><h2><span class="numbering">3.</span> {% trans %}Data management, documentation and curation{% endtrans %}</h2></th>
+    </tr>
+    <tr class="row-content">
+      <td>
+        <div class="subsection">
+          <h3><span class="numbering">3.1.</span> {% trans %}Managing, storing and curating data{% endtrans %}</h3>
+          {{ renderAnswerText(data.data_management.managing) }}
+        </div>
+
+        <div class="subsection">
+          <h3><span class="numbering">3.2.</span> {% trans %}Metadata standards and data documentation{% endtrans %}</h3>
+          {{ renderAnswerText(data.data_management.metadata_docs) }}
+        </div>
+
+        <div class="subsection">
+          <h3><span class="numbering">3.3.</span> {% trans %}Data preservation strategy and standards{% endtrans %}</h3>
+          {{ renderAnswerText(data.data_management.preservation) }}
+        </div>
+      </td>
+    </tr>
+
+    <tr class="row-section">
+      <th><h2><span class="numbering">4.</span> {% trans %}Data security and confidentiality of potentially disclosive personal information{% endtrans %}</h2></th>
+    </tr>
+    <tr class="row-content">
+      <td>
+        <div class="subsection">
+          <h3><span class="numbering">4.1.</span> {% trans %}Formal information / data security standards{% endtrans %}</h3>
+          {{ renderAnswerText(data.data_security.standards) }}
+        </div>
+
+        <div class="subsection">
+          <h3><span class="numbering">4.2.</span> {% trans %}Main risks to data security{% endtrans %}</h3>
+          {{ renderAnswerText(data.data_security.risks) }}
+        </div>
+      </td>
+    </tr>
+
+    <tr class="row-section">
+      <th><h2><span class="numbering">5.</span> {% trans %}Data sharing and access{% endtrans %}</h2></th>
+    </tr>
+    <tr class="row-content">
+      <td>
+        <div class="subsection">
+          <h3><span class="numbering">5.1.</span> {% trans %}Suitability for sharing {% endtrans %}</h3>
+          {{ renderAnswerText(data.data_sharing.suitability) }}
+        </div>
+
+        <div class="subsection">
+          <h3><span class="numbering">5.2.</span> {% trans %}Discovery by potential users of the research data{% endtrans %}</h3>
+          {{ renderAnswerText(data.data_sharing.discovery) }}
+        </div>
+
+        <div class="subsection">
+          <h3><span class="numbering">5.3.</span> {% trans %}Governance of access{% endtrans %}</h3>
+          {{ renderAnswerText(data.data_sharing.governance) }}
+        </div>
+
+        <div class="subsection">
+          <h3><span class="numbering">5.4.</span> {% trans %}The study team's exclusive use of the data {% endtrans %}</h3>
+          {{ renderAnswerText(data.data_sharing.exclusive_use) }}
+        </div>
+
+        <div class="subsection">
+          <h3><span class="numbering">5.5.</span> {% trans %}Restrictions or delays to sharing, with planned actions to limit such restrictions{% endtrans %}</h3>
+          {{ renderAnswerText(data.data_sharing.restrictions) }}
+        </div>
+
+        <div class="subsection">
+          <h3><span class="numbering">5.6.</span> {% trans %}Regulation of responsibilities of users{% endtrans %}</h3>
+          {{ renderAnswerText(data.data_sharing.regulation) }}
+        </div>
+      </td>
+    </tr>
+
+    <tr class="row-section">
+      <th><h2><span class="numbering">6.</span> {% trans %}Responsibilities{% endtrans %}</h2></th>
+    </tr>
+    <tr class="row-content">
+      <td>
+        {{ renderAnswerText(data.responsibilities) }}
+      </td>
+    </tr>
+
+    <tr class="row-section">
+      <th><h2><span class="numbering">7.</span> {% trans %}Relevant institutional, departmental or study policies on data sharing and data security
+{% endtrans %}</h2></th>
+    </tr>
+    <tr class="row-content">
+      <td>
+        <table>
+          <thead>
+            <tr><th>{% trans %}Policy{% endtrans %}</th><th>{% trans %}URL or Reference{% endtrans %}</th></tr>
+          </thead>
+          <tbody>
+            {%- for policy in data.policies -%}
+            <tr><td>{{ policy.name }}</td><td><a href="{{ policy.url }}" target="_blank">{{ policy.url }}</a></td></tr>
+            {%- endfor -%}
+          </tbody>
+        </table>
+      </td>
+    </tr>
+
+    <tr class="row-section">
+      <th><h2><span class="numbering">8.</span> {% trans %}Author of this Data Management Plan{% endtrans %}</h2></th>
+    </tr>
+    <tr class="row-content">
+      <td>
+        {%- if data.contact.principal_investigator is none or data.contact.name is none -%}
+          {%- if data.contact.comment is none -%}
+            <p>{{ not_answered }}</p>
+          {%- endif -%}
+        {%- elif data.contact.principal_investigator -%}
+          <p>{{ data.contact.name }} (principal investigator)</p>
+        {%- elif data.contact.phone or data.contact.email -%}
+          {%- set contacts = [] -%}
+          {%- if data.contact.phone -%}
+            {%- do contacts.append(data.contact.phone) -%}
+          {%- endif -%}
+          {%- if data.contact.email -%}
+            {%- do contacts.append('<a href="mailto:" ~ data.contact.email ~ ">' ~ data.contact.email ~ '</a>') -%}
+          {%- endif -%}
+          <p>{{ data.contact.name }} ({{ contacts|join(', ') }})</p>
+        {%- else -%}
+          <p>{{ data.contact.name }} (<span class="not-answered">contact information not provided yet</span>)</p>
+        {%- endif -%}
+        {%- if data.contact.comment -%}
+          {{ renderAnswerText(data.contact.comment) }}
+        {%- endif -%}
+      </td>
+    </tr>
+  </tbody>
+</table>

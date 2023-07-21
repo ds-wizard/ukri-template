@@ -1,0 +1,16 @@
+{%- set dc = ctx|to_context_obj -%}
+{%- import 'src/consts.j2' as consts -%}
+{%- import 'src/mapping/map-data.j2' as map_data with context -%}
+{%- set data = map_data.data -%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>{{ consts.title }}</title>
+  </head>
+  <body>
+    {% include 'src/rendering/dmp-table.html.j2' with context %}
+
+    {% include 'src/rendering/footer.html.j2' with context %}
+  </body>
+</html>

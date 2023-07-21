@@ -1,0 +1,109 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+@page {
+  size: A4;
+
+  @bottom-left {
+    border-top: 1px solid gainsboro;
+    content: '';
+    display: block;
+    width: 100%;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    vertical-align: top;
+    font-size: 10pt;
+  }
+  @bottom-right {
+    border-top: 1px solid gainsboro;
+    content: '';
+    display: block;
+    width: 100%;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    vertical-align: top;
+    font-size: 10pt;
+  }
+  @bottom-center {
+    border-top: 1px solid gainsboro;
+    content: counter(page) " / " counter(pages);
+    display: block;
+    width: 100%;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    vertical-align: top;
+    font-size: 10pt;
+  }
+}
+
+article h1 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+table.dmp-table,
+table.dmp-table th,
+table.dmp-table td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+table.dmp-table th,
+table.dmp-table td {
+  padding: 0.5rem;
+}
+
+table.dmp-table th {
+  background: #CCC;
+  font-weight: bold;
+  text-align: left;
+}
+
+table.dmp-table h2 {
+  font-size: 120%;
+}
+
+table.dmp-table h3 {
+  font-size: 110%;
+}
+
+table.dmp-table h2 span.numbering {
+  font-weight: normal;
+  margin-right: 1em;
+}
+
+table.dmp-table h3 span.numbering {
+  font-weight: normal;
+  margin-right: 0.5em;
+}
+
+table.dmp-table div.subsection {
+  margin-bottom: 1rem;
+  page-break-inside: avoid;
+}
+
+table.dmp-table div.subsection p {
+  margin-top: 0.5rem;
+}
+
+table.dmp-table div.subsection:last-of-type {
+  margin-bottom: 0;
+}
+
+table.dmp-table td table {
+  border: 1px solid black;
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+span.not-answered {
+  color: red;
+}
+
+footer {
+  margin-top: 0.5rem;
+}

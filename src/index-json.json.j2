@@ -1,0 +1,4 @@
+{%- set dc = ctx|to_context_obj -%}
+{%- import 'src/mapping/map-data.j2' as map_data with context -%}
+{%- set data = map_data.data -%}
+{{ data|tojson(2) }}

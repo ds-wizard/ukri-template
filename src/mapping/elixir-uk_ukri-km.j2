@@ -1,0 +1,141 @@
+{#- This maps elixir.uk:ukri-km KM to our data model for this documet template -#}
+
+{%- macro mapToData(data) -%}
+  {#- Description of the data -#}
+  {%- set path = 'aadcd973-a8cd-4067-a908-8be3ea02a421.ac61d5a9-4668-4952-87c6-a37373592fd6' %}
+  {%- if path in dc.replies.keys() -%}
+    {%- do data.data_description.update({'type_of_study': dc.replies.get(path).value}) -%}
+  {%- endif -%}
+  {%- set path = 'aadcd973-a8cd-4067-a908-8be3ea02a421.2acbe37f-d051-4d95-95c1-b106bf282f97' %}
+  {%- if path in dc.replies.keys() -%}
+    {%- do data.data_description.update({'types_of_data': dc.replies.get(path).value}) -%}
+  {%- endif -%}
+  {%- set path = 'aadcd973-a8cd-4067-a908-8be3ea02a421.acd7fdfa-82a9-4919-8123-16acd4df0307' %}
+  {%- if path in dc.replies.keys() -%}
+    {%- do data.data_description.update({'format_and_scale': dc.replies.get(path).value}) -%}
+  {%- endif -%}
+
+  {#- Data collection / generation -#}
+  {%- set path = '4dd5c562-b5bb-4bf4-863c-218104c39aa1.5b3a2915-d103-4d90-8395-c5f88ae1c72f' %}
+  {%- if path in dc.replies.keys() -%}
+    {%- do data.data_collection.update({'methodologies': dc.replies.get(path).value}) -%}
+  {%- endif -%}
+  {%- set path = '4dd5c562-b5bb-4bf4-863c-218104c39aa1.4270b394-0f94-4f2a-8829-afeb43e42754' %}
+  {%- if path in dc.replies.keys() -%}
+    {%- do data.data_collection.update({'quality_standards': dc.replies.get(path).value}) -%}
+  {%- endif -%}
+
+  {#- Data management, documentation and curation -#}
+  {%- set path = 'e5251484-0733-4f48-a58d-a0537c07089b.35652c63-0d1b-4347-8fef-d5d96d62d77e' %}
+  {%- if path in dc.replies.keys() -%}
+    {%- do data.data_management.update({'managing': dc.replies.get(path).value}) -%}
+  {%- endif -%}
+  {%- set path = 'e5251484-0733-4f48-a58d-a0537c07089b.8f3fc73e-bd7a-40df-aedc-26a323ad0587' %}
+  {%- if path in dc.replies.keys() -%}
+    {%- do data.data_management.update({'metadata_docs': dc.replies.get(path).value}) -%}
+  {%- endif -%}
+  {%- set path = 'e5251484-0733-4f48-a58d-a0537c07089b.82a2b277-1203-400b-8bdd-4f2b7c1a5e1a' %}
+  {%- if path in dc.replies.keys() -%}
+    {%- do data.data_management.update({'preservation': dc.replies.get(path).value}) -%}
+  {%- endif -%}
+
+  {#- Data security and confidentiality of potentially disclosive information -#}
+  {%- set path = '82a8ae8b-bbf0-43a9-a750-27eca4d0ae8a.4659a8eb-2411-4224-88e7-be2b1a0a6e4d' %}
+  {%- if path in dc.replies.keys() -%}
+    {%- do data.data_security.update({'standards': dc.replies.get(path).value}) -%}
+  {%- endif -%}
+  {%- set path = '82a8ae8b-bbf0-43a9-a750-27eca4d0ae8a.ec8900dc-43c5-4f7a-b471-fce46c0446ac' %}
+  {%- if path in dc.replies.keys() -%}
+    {%- do data.data_security.update({'risks': dc.replies.get(path).value}) -%}
+  {%- endif -%}
+
+  {#- Data sharing and access -#}
+  {%- set path = 'c43c35ab-0fba-4810-bb1c-f86b6e35ae54.7f608bc5-20a8-47ae-9f38-9d269e71b4e6' %}
+  {%- if path in dc.replies.keys() -%}
+    {%- do data.data_sharing.update({'suitability': dc.replies.get(path).value}) -%}
+  {%- endif -%}
+  {%- set path = 'c43c35ab-0fba-4810-bb1c-f86b6e35ae54.784d4b3f-cb42-44e0-a178-b63bcb6aba54' %}
+  {%- if path in dc.replies.keys() -%}
+    {%- do data.data_sharing.update({'discovery': dc.replies.get(path).value}) -%}
+  {%- endif -%}
+  {%- set path = 'c43c35ab-0fba-4810-bb1c-f86b6e35ae54.e724d4b5-13f5-4ea3-9635-816a2f5adc92' %}
+  {%- if path in dc.replies.keys() -%}
+    {%- do data.data_sharing.update({'governance': dc.replies.get(path).value}) -%}
+  {%- endif -%}
+  {%- set path = 'c43c35ab-0fba-4810-bb1c-f86b6e35ae54.ba67fb6b-2950-4a3c-bcb9-951941abfdcf' %}
+  {%- if path in dc.replies.keys() -%}
+    {%- do data.data_sharing.update({'exclusive_use': dc.replies.get(path).value}) -%}
+  {%- endif -%}
+  {%- set path = 'c43c35ab-0fba-4810-bb1c-f86b6e35ae54.bdbf6cfa-3204-4c0f-a439-08175ea8fdd2' %}
+  {%- if path in dc.replies.keys() -%}
+    {%- do data.data_sharing.update({'restrictions': dc.replies.get(path).value}) -%}
+  {%- endif -%}
+  {%- set path = 'c43c35ab-0fba-4810-bb1c-f86b6e35ae54.d23b1ae6-a57b-49f4-8d76-c95fd2169ff4' %}
+  {%- if path in dc.replies.keys() -%}
+    {%- do data.data_sharing.update({'regulation': dc.replies.get(path).value}) -%}
+  {%- endif -%}
+
+  {#- Responsibilities -#}
+  {%- set path = '4e200133-6259-4fc4-8d8f-5acd2c3a991f.e443a316-b1a1-4f3f-a6bf-37b4d4847633' %}
+  {%- if path in dc.replies.keys() -%}
+    {%- do data.update({'responsibilities': dc.replies.get(path).value}) -%}
+  {%- endif -%}
+
+  {#- Policies -#}
+  {%- set path = "9fa5dd0a-c10b-49e8-ac5a-e2878d37b29b.199790fb-0567-4e2d-b162-16224a2e1605" -%}
+  {%- if path in dc.replies.keys() -%}
+    {%- do data.policies.append({'name': 'Data Management Policy & Procedures', 'url': dc.replies.get(path).value, 'predefined': True}) -%}
+  {%- endif -%}
+  {%- set path = "9fa5dd0a-c10b-49e8-ac5a-e2878d37b29b.eb4a740e-d01b-400f-9b1a-5b36ada9f9c3" -%}
+  {%- if path in dc.replies.keys() -%}
+    {%- do data.policies.append({'name': 'Data Security Policy', 'url': dc.replies.get(path).value, 'predefined': True}) -%}
+  {%- endif -%}
+  {%- set path = "9fa5dd0a-c10b-49e8-ac5a-e2878d37b29b.71c5b706-d9cb-4f3c-85ec-7cc307f532af" -%}
+  {%- if path in dc.replies.keys() -%}
+    {%- do data.policies.append({'name': 'Data Sharing Policy', 'url': dc.replies.get(path).value, 'predefined': True}) -%}
+  {%- endif -%}
+  {%- set path = "9fa5dd0a-c10b-49e8-ac5a-e2878d37b29b.ed7b9e8e-f77c-40f9-aba5-80ae7bc9c27f" -%}
+  {%- if path in dc.replies.keys() -%}
+    {%- do data.policies.append({'name': 'Institutional Information Policy', 'url': dc.replies.get(path).value, 'predefined': True}) -%}
+  {%- endif -%}
+  {#- - Other policies -#}
+  {%- set path = "9fa5dd0a-c10b-49e8-ac5a-e2878d37b29b.02317177-5bd7-4292-99bd-cc1b0f5f7e65" -%}
+  {%- if path in dc.replies.keys() -%}
+    {%- for policyItem in dc.replies.get(path).items -%}
+      {%- set namePath = [path, policyItem, "cd40ce30-7998-411e-b872-2b051ea6219a"]|reply_path -%}
+      {%- set urlPath = [path, policyItem, "59f14109-2e68-4c67-9fe5-6b1338ad5101"]|reply_path -%}
+      {%- if namePath in dc.replies.keys() and urlPath in dc.replies.keys() -%}
+        {%- do data.policies.append({
+          'name': dc.replies.get(namePath).value,
+          'url': dc.replies.get(urlPath).value,
+          'predefined': False,
+        }) -%}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endif -%}
+
+  {#- Contact information -#}
+  {%- set path = '562dec1f-0f44-4780-9f50-05f5c59a6925.c5763e5c-aaff-47c3-92d6-90ee70ab6724' %}
+  {%- if path in dc.replies.keys() -%}
+    {%- do data.contact.update({'name': dc.replies.get(path).value}) -%}
+  {%- endif -%}
+  {#- - is Principal Investigator? -#}
+  {%- set path = '562dec1f-0f44-4780-9f50-05f5c59a6925.a12c0b8f-c2ad-474e-823a-29328f965771' %}
+  {%- if path in dc.replies.keys() and dc.replies.get(path).value == '2fc652f5-aaa5-45d1-b020-61ccecc6923b'  -%}
+    {# => Yes #}
+    {%- do data.contact.update({'principal_investigator': True}) -%}
+  {%- endif -%}
+  {%- if path in dc.replies.keys() and dc.replies.get(path).value == 'e03f06b0-8ac1-4e53-ae88-7372160dd6c7'  -%}
+    {# => No #}
+    {%- do data.contact.update({'principal_investigator': False}) -%}
+    {%- set pathPrefix = path ~ ".e03f06b0-8ac1-4e53-ae88-7372160dd6c7." -%}
+    {%- set phonePath = pathPrefix ~ "4214265c-426a-41bd-9f63-330d8823e134" -%}
+    {%- if phonePath in dc.replies.keys() -%}
+      {%- do data.contact.update({'phone': dc.replies.get(phonePath).value}) -%}
+    {%- endif -%}
+    {%- set emailPath = pathPrefix ~ "349bcea1-b254-427e-9bab-1abb6bb8028a" -%}
+    {%- if emailPath in dc.replies.keys() -%}
+      {%- do data.contact.update({'email': dc.replies.get(emailPath).value}) -%}
+    {%- endif -%}
+  {%- endif -%}
+{%- endmacro -%}
